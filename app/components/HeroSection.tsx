@@ -13,9 +13,7 @@ const navLinks = [
 const GetStartedButton = ({ mobile = false }) => {
     return (
         <motion.button
-            // Initial state: White background, Black text
             initial={{ backgroundColor: "#ffffff", color: "#000000" }}
-            // Hover state: Orange background, White text
             whileHover={{ 
                 scale: 1.05, 
                 backgroundColor: "#FF6B00",
@@ -47,53 +45,56 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <div className="bg-black min-h-screen">
+        <div className="bg-black min-h-screen w-full overflow-x-hidden">
             {/* --- NAVIGATION BAR --- */}
-            <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-3 md:py-6 px-6">
-                <div
-                    className={`
-                      max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
-                      h-12 md:h-16 
-                      ${scrolled
-                            ? "bg-white/[0.03] border-white/[0.08] backdrop-blur-xl shadow-2xl"
-                            : "bg-transparent border-transparent"
-                        }
-                    `}
-                >
-                    <div className="flex items-center min-w-[100px] md:min-w-[220px] h-full">
-                        <Image
-                            src="/images/Digitrizon.png"
-                            alt="Digitrizon Logo"
-                            width={180}
-                            height={60}
-                            className="w-auto h-10 md:h-24 scale-110 md:scale-150 pl-1 md:pl-5 object-contain brightness-110"
-                            priority
-                        />
-                    </div>
-
-                    <div className="hidden md:flex items-center gap-12">
-                        <div className="flex items-center gap-10">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-[13px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
+            {/* REMOVED px-6 and py-3 to prevent the 'framed' look on mobile */}
+            <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
+                <div className="w-full px-4 py-3 md:px-6 md:py-6"> 
+                    <div
+                        className={`
+                          max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
+                          h-12 md:h-16 
+                          ${scrolled
+                                ? "bg-white/[0.03] border-white/[0.08] backdrop-blur-xl shadow-2xl"
+                                : "bg-transparent border-transparent"
+                            }
+                        `}
+                    >
+                        <div className="flex items-center min-w-[100px] md:min-w-[220px] h-full">
+                            <Image
+                                src="/images/Digitrizon.png"
+                                alt="Digitrizon Logo"
+                                width={180}
+                                height={60}
+                                className="w-auto h-10 md:h-24 scale-110 md:scale-150 pl-1 md:pl-5 object-contain brightness-110"
+                                priority
+                            />
                         </div>
-                        <button className="bg-white text-black px-6 py-2.5 rounded-full text-[12px] font-bold hover:bg-[#FF6B00] hover:text-white transition-all uppercase tracking-widest">
-                            Contact Us
+
+                        <div className="hidden md:flex items-center gap-12">
+                            <div className="flex items-center gap-10">
+                                {navLinks.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        className="text-[13px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
+                                    >
+                                        {link.name}
+                                    </a>
+                                ))}
+                            </div>
+                            <button className="bg-white text-black px-6 py-2.5 rounded-full text-[12px] font-bold hover:bg-[#FF6B00] hover:text-white transition-all uppercase tracking-widest">
+                                Contact Us
+                            </button>
+                        </div>
+
+                        <button
+                            className="md:hidden text-white p-1"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            {isOpen ? <X size={22} /> : <Menu size={22} />}
                         </button>
                     </div>
-
-                    <button
-                        className="md:hidden text-white p-1"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        {isOpen ? <X size={22} /> : <Menu size={22} />}
-                    </button>
                 </div>
 
                 <AnimatePresence>
@@ -102,7 +103,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="absolute top-16 left-6 right-6 p-6 rounded-[1.5rem] bg-black/95 border border-white/[0.08] backdrop-blur-2xl md:hidden z-50 shadow-2xl"
+                            className="absolute top-20 left-4 right-4 p-6 rounded-[1.5rem] bg-black/95 border border-white/[0.08] backdrop-blur-2xl md:hidden z-50 shadow-2xl"
                         >
                             <div className="flex flex-col gap-4 items-center text-center">
                                 {navLinks.map((link) => (
@@ -123,26 +124,26 @@ export default function HeroSection() {
                 </AnimatePresence>
             </nav>
 
-            {/* --- HERO SECTION WITH VIDEO BACKGROUND --- */}
-            <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-4 md:pt-0">
+            {/* --- HERO SECTION --- */}
+            {/* Changed min-h-screen to h-screen or h-[100dvh] for mobile edge-to-edge */}
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
                 
-                {/* VIDEO ELEMENT */}
+                {/* VIDEO ELEMENT: Added object-center to ensure it stays focused */}
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    className="absolute inset-0 w-full h-full object-cover z-0 object-center"
                 >
                     <source src="/videos/video_2.mp4" type="video/mp4" />
                 </video>
 
                 {/* OVERLAY & BACKDROP BLUR */}
-                {/* This div adds the dark tint and the subtle blur effect to the video */}
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] z-[1]" />
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px] z-[1]" />
 
                 {/* AMBIENT GLOW */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#FF6B00]/10 rounded-full blur-[160px] pointer-events-none z-[2]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[800px] md:h-[500px] bg-[#FF6B00]/10 rounded-full blur-[120px] pointer-events-none z-[2]" />
 
                 <div className="container relative z-10 px-6 mx-auto text-center">
                     <motion.h1
