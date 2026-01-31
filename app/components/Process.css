@@ -1,0 +1,147 @@
+/* .process-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.process-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: #111;
+}
+
+.process-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 720px;
+  margin: 0 auto 24px;
+}
+
+
+/* Timeline */
+
+.process-content {
+  background: radial-gradient(
+    circle at top,
+    #1b1b1b,
+    #0b0b0b
+  );
+  padding: 96px 16px;
+}
+
+.process-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.process-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #b5b5b5;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+
+/* Timeline container */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+/* Floating rail */
+.process-steps::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  bottom: -20px;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #fb9118,
+    rgba(251, 145, 24, 0.25),
+    transparent
+  );
+}
+
+/* Card */
+.process-step {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 28px 32px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 30px 60px rgba(251, 145, 24, 0.25),
+    inset 0 0 0 1px rgba(251, 145, 24, 0.35);
+}
+
+/* Step number */
+.process-step-number {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #fb9118, #ffb867);
+  color: #111;
+  font-weight: 700;
+  font-size: 0.85rem;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+/* Text */
+.process-step-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.process-step-desc {
+  font-size: 1rem;
+  color: #d1d1d1;
+  line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .process-steps::before {
+    display: none;
+  }
+
+  .process-step {
+    max-width: 100%;
+  }
+
+  .process-step-number {
+    left: 24px;
+    transform: none;
+  }
+}
