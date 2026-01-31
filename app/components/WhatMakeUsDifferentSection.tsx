@@ -62,7 +62,7 @@ export default function WhatMakeUsDifferentSection() {
                 transition: { duration: 0.3 }
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-7 py-3 font-bold rounded-full transition-all text-[16px] uppercase tracking-widest"
+              className="px-7 py-3 font-bold rounded-full transition-all text-[11px] uppercase tracking-widest"
             >
               Start Your Project
             </motion.button>
