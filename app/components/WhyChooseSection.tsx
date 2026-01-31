@@ -29,7 +29,7 @@ export default function WhyChooseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-2xl md:text-6xl font-bold text-white tracking-tighter mb-4 md:mb-6"
+            className="text-3xl md:text-6xl font-bold text-white tracking-tighter mb-4 md:mb-6"
           >
             Why Choose <span className="text-[#FF6B00]">DIGITRIZON?</span>
           </motion.h2>
@@ -39,7 +39,7 @@ export default function WhyChooseSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/50 text-[13px] md:text-[15px] leading-relaxed max-w-2xl mx-auto px-4 md:px-0"
+            className="text-white/50 text-[16px] md:text-[15px] leading-relaxed max-w-2xl mx-auto px-4 md:px-0"
           >
             DIGITRIZON brings a unified approach that builds reliable digital products while enabling steady progress through technology-led solutions.
           </motion.p>
@@ -67,7 +67,7 @@ export default function WhyChooseSection() {
                 </div>
 
                 {/* Standardized to 14px */}
-                <span className={`text-white/80 font-bold text-[14px] uppercase tracking-wide ${isLast ? "text-white" : ""}`}>
+                <span className={`text-white/80 font-bold text-[16px] uppercase tracking-wide ${isLast ? "text-white" : ""}`}>
                   {item.text}
                 </span>
               </motion.div>

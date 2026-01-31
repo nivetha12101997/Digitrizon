@@ -42,25 +42,26 @@ export default function CTASection() {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col items-center"
                 >
-<motion.h2 
+                    <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-2xl md:text-6xl font-bold text-white tracking-tighter leading-tight mb-3"
+                        className="text-3xl md:text-6xl font-bold text-white tracking-tighter leading-tight mb-3"
                     >
                         Have an Idea? <span className="text-[#FF6B00]">Let’s Build It Together</span>
                     </motion.h2>
 
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-white/40 text-[13px] md:text-[15px] max-w-xl leading-relaxed mb-6"
+                        className="text-white/40 text-[16px] md:text-[15px] max-w-xl leading-relaxed mb-6"
                     >
-                        Whether it's a mobile app, web app, or digital strategy, we’re here to help you bring it to life. {" "}
-                        <span className="text-white/70 font-medium">Let’s build something exceptional.</span>
+                        Whether it's a mobile app, web app, or a digital marketing strategy, we’re here to shape your concept into a real, high-impact digital solution.
+                         
+                                                <span className="text-white/70 font-medium">Share your vision, and we’ll help you make it happen.</span>
                     </motion.p>
 
                     <motion.div

@@ -32,7 +32,7 @@ const ProcessItem = ({ step, index }: { step: any, index: number }) => {
                         <div className="w-10 h-10 rounded-xl bg-[#FF6B00]/10 border border-[#FF6B00]/50 flex items-center justify-center">
                             <step.Icon size={20} className="text-[#FF6B00]" strokeWidth={2} />
                         </div>
-                        <h3 className="text-[14px] font-bold text-white tracking-wider uppercase">
+                        <h3 className="text-[16px] font-bold text-white tracking-wider uppercase">
                             {step.title}
                         </h3>
                     </div>
@@ -89,7 +89,7 @@ export default function FloatingProcess() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-white text-2xl md:text-6xl font-bold tracking-tighter mb-4 md:mb-6"
+                        className="text-white text-3xl md:text-6xl font-bold tracking-tighter mb-4 md:mb-6"
                     >
                         How We Work: <span className="text-[#FF6B00]">From Idea to Launch</span>
                     </motion.h2>
@@ -99,7 +99,7 @@ export default function FloatingProcess() {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-white/40 text-[13px] md:text-[15px] max-w-2xl mx-auto leading-relaxed px-4 md:px-0"
+                        className="text-white/40 text-[16px] md:text-[15px] max-w-2xl mx-auto leading-relaxed px-4 md:px-0"
                     >
                         Our structured process ensures every digital product is built for scale and long-term success.
                     </motion.p>

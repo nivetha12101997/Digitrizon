@@ -20,7 +20,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="space-y-6">
                         <div>
-                            <h2 className="text-2xl font-black tracking-tighter text-white">
+                            <h2 className="text-3xl font-black tracking-tighter text-white">
                                 DIGITRIZON
                             </h2>
                             <p className="text-white/40 mt-2 text-sm tracking-widest uppercase">
@@ -38,7 +38,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {['Services', 'Insights', 'About Us', 'Contact Us'].map((link) => (
                                 <li key={link}>
-<a href="#" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px]">                                        {link}
+<a href="#" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[16px]">                                        {link}
                                         <ArrowUpRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transition-all -translate-y-1 group-hover:translate-y-0" />
                                     </a>
                                 </li>

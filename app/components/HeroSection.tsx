@@ -14,21 +14,24 @@ const GetStartedButton = ({ mobile = false }) => {
     return (
         <motion.button
             initial={{ backgroundColor: "#ffffff", color: "#000000" }}
-            whileHover={{ 
-                scale: 1.05, 
+            whileHover={{
+                scale: 1.05,
                 backgroundColor: "#FF6B00",
                 color: "#ffffff",
-                transition: { duration: 0.3 } 
+                transition: { duration: 0.3 }
             }}
-            whileTap={{ scale: 0.95 }}
-            className={`rounded-full font-bold shadow-lg flex items-center gap-2 group whitespace-nowrap uppercase tracking-widest border border-transparent ${
-                mobile ? "px-6 py-2.5 text-[11px]" : "px-8 py-3 text-[13px]"
-            }`}
+            whileTap={{
+                scale: 0.95, backgroundColor: "#FF6B00",
+                color: "#ffffff",
+                transition: { duration: 0.3 }
+            }}
+            className={`rounded-full font-bold shadow-lg flex items-center gap-2 group whitespace-nowrap uppercase tracking-widest border border-transparent ${mobile ? "px-6 py-2.5 text-[11px]" : "px-8 py-3 text-[16px]"
+                }`}
         >
-            Get Started
-            <ArrowRight 
-                size={mobile ? 14 : 18} 
-                className="transition-transform group-hover:translate-x-1" 
+            {mobile ? 'Contact Us' : 'Get Started'}
+            <ArrowRight
+                size={mobile ? 14 : 18}
+                className="transition-transform group-hover:translate-x-1"
             />
         </motion.button>
     );
@@ -49,7 +52,7 @@ export default function HeroSection() {
             {/* --- NAVIGATION BAR --- */}
             {/* REMOVED px-6 and py-3 to prevent the 'framed' look on mobile */}
             <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
-                <div className="w-full px-4 py-3 md:px-6 md:py-6"> 
+                <div className="w-full px-4 py-3 md:px-6 md:py-6">
                     <div
                         className={`
                           max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
@@ -77,7 +80,7 @@ export default function HeroSection() {
                                     <a
                                         key={link.name}
                                         href={link.href}
-                                        className="text-[13px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
+                                        className="text-[16px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
                                     >
                                         {link.name}
                                     </a>
@@ -127,7 +130,7 @@ export default function HeroSection() {
             {/* --- HERO SECTION --- */}
             {/* Changed min-h-screen to h-screen or h-[100dvh] for mobile edge-to-edge */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-                
+
                 {/* VIDEO ELEMENT: Added object-center to ensure it stays focused */}
                 <video
                     autoPlay
@@ -140,7 +143,7 @@ export default function HeroSection() {
                 </video>
 
                 {/* OVERLAY & BACKDROP BLUR */}
-                <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px] z-[1]" />
+                <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px] z-[1]" />
 
                 {/* AMBIENT GLOW */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[800px] md:h-[500px] bg-[#FF6B00]/10 rounded-full blur-[120px] pointer-events-none z-[2]" />
@@ -162,11 +165,11 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="max-w-2xl mx-auto text-[14px] md:text-xl text-white/50 leading-relaxed mb-10 md:mb-12"
+                        className="max-w-2xl mx-auto text-[16px] md:text-xl text-white/50 leading-relaxed mb-10 md:mb-12"
                     >
                         <span className="text-white font-semibold">DIGITRIZON</span> builds scalable mobile apps, web apps, and tech-driven digital growth solutions.
                     </motion.p>
-                    
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

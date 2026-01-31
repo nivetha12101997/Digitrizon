@@ -51,7 +51,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
             <div className="relative w-12 h-12 mb-6">
                 <Image src={service.image} alt={service.title} fill className="object-contain" />
             </div>
-            <h3 className="text-[14px] font-bold text-white mb-3 uppercase tracking-wider group-hover:text-[#FF6B00] transition-colors">
+            <h3 className="text-[16px] font-bold text-white mb-3 uppercase tracking-wider group-hover:text-[#FF6B00] transition-colors">
                 {service.title}
             </h3>
             <p className="text-white/50 text-[15px] mb-8 flex-grow leading-relaxed">
@@ -84,7 +84,7 @@ export default function ServicesSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl md:text-6xl font-bold text-white tracking-tighter"
+                        className="text-3xl md:text-6xl font-bold text-white tracking-tighter"
                     >
                         What We Do <span className="text-[#FF6B00]">Best</span>
                     </motion.h2>
@@ -94,7 +94,7 @@ export default function ServicesSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-white/50 mt-4 max-w-2xl mx-auto text-[13px] md:text-[15px] leading-relaxed px-4 md:px-0"
+                        className="text-white/50 mt-4 max-w-2xl mx-auto text-[16px] md:text-[15px] leading-relaxed px-4 md:px-0"
                     >
                         Digital Craftsmanship for Ambitious Businesses
                     </motion.p>

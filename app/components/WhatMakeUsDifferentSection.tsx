@@ -42,11 +42,11 @@ export default function WhatMakeUsDifferentSection() {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center"
           >
-<motion.h2 className="text-2xl md:text-6xl font-bold text-white tracking-tighter leading-[1.1] mb-4 md:mb-6">
+<motion.h2 className="text-3xl md:text-6xl font-bold text-white tracking-tighter leading-[1.1] mb-4 md:mb-6">
               What Makes <br />
               <span className="text-[#FF6B00]">Us Different</span>
             </motion.h2>
-            <p className="text-white/50 text-[13px] md:text-[15px] leading-relaxed max-w-sm mb-8">
+            <p className="text-white/50 text-[16px] md:text-[15px] leading-relaxed max-w-sm mb-8">
               DIGITRIZON blends strong engineering, modern UI/UX design, and analytics-driven growth strategies to build digital products that succeed in real-world markets.
             </p>
             
@@ -62,7 +62,7 @@ export default function WhatMakeUsDifferentSection() {
                 transition: { duration: 0.3 }
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-7 py-3 font-bold rounded-full transition-all text-[13px] uppercase tracking-widest"
+              className="px-7 py-3 font-bold rounded-full transition-all text-[16px] uppercase tracking-widest"
             >
               Start Your Project
             </motion.button>
@@ -90,14 +90,14 @@ export default function WhatMakeUsDifferentSection() {
               {/* Number Container */}
               <div className="flex-shrink-0 relative">
                 <div className="relative z-10 w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-[#FF6B00] bg-[#FF6B00]/5 group-hover:bg-[#FF6B00]/20 group-hover:border-[#FF6B00]/40 transition-all duration-300">
-                  <span className="text-[13px] font-black tracking-tighter">
+                  <span className="text-[16px] font-black tracking-tighter">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
               </div>
               
               {/* Title - Fixed at 14px */}
-              <h3 className="text-[14px] font-bold text-white/90 group-hover:text-white transition-colors">
+              <h3 className="text-[16px] font-bold text-white/90 group-hover:text-white transition-colors">
                 {item.title}
               </h3>
             </motion.div>
