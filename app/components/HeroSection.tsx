@@ -54,7 +54,7 @@ export default function HeroSection() {
                     <div
                         className={`
                           max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
-                          h-14 md:h-16 
+                          h-14 md:h-14 
                           ${scrolled
                                 ? "bg-white/[0.03] border-white/[0.08] backdrop-blur-xl shadow-2xl"
                                 : "bg-transparent border-transparent"
@@ -71,7 +71,7 @@ export default function HeroSection() {
                                 /* MOBILE: scale-[2.4] for high visibility. 
                                    translate-x-10 moves it right so the left-side scale doesn't get cropped.
                                 */
-                                className="w-auto h-12 md:h-24 scale-[2.4] translate-x-10 md:translate-x-0 md:pl-5 object-contain brightness-110"
+                                className="w-auto h-12 md:h-15 scale-[2.4] translate-x-10 md:translate-x-0 md:pl-7 object-contain brightness-110"
                                 priority
                             />
                         </div>
@@ -83,7 +83,7 @@ export default function HeroSection() {
                                     <a
                                         key={link.name}
                                         href={link.href}
-                                        className="text-[16px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
+                                        className="text-[12px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
                                     >
                                         {link.name}
                                     </a>
@@ -119,7 +119,7 @@ export default function HeroSection() {
                                         key={link.name}
                                         href={link.href}
                                         onClick={() => setIsOpen(false)}
-                                        className="text-[14px] font-bold text-white/70 hover:text-[#FF6B00] transition-colors uppercase tracking-[0.2em]"
+                                        className="text-[11px] font-bold text-white/70 hover:text-[#FF6B00] transition-colors uppercase tracking-[0.2em]"
                                     >
                                         {link.name}
                                     </a>
