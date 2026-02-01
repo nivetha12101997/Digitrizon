@@ -31,10 +31,7 @@ const GetStartedButton = ({ mobile = false }) => {
             }`}
         >
             {mobile ? 'Contact Us' : 'Get Started'}
-            <ArrowRight 
-                size={mobile ? 14 : 18} 
-                className="transition-transform group-hover:translate-x-1" 
-            />
+            {mobile ? null : <ArrowRight size={mobile ? 14 : 18} className="transition-transform group-hover:translate-x-1" />}
         </motion.button>
     );
 };

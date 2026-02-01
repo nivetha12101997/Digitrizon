@@ -13,7 +13,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-black border-t border-white/5 pt-20 pb-10 px-6 overflow-hidden">
+        <footer className="bg-black border-t border-white/5 pt-20 pb-10 px-6 overflow-hidden relative">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
@@ -32,49 +32,57 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Quick Links */}
-                    <div className="space-y-6">
-                        <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">Quick Links</h4>
-                        <ul className="space-y-4">
-                            {['Services', 'Insights', 'About Us', 'Contact Us'].map((link) => (
-                                <li key={link}>
-<a href="#" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[16px]">                                        {link}
-                                        <ArrowUpRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transition-all -translate-y-1 group-hover:translate-y-0" />
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    {/* Links Row - Custom Width Ratio for Mobile */}
+                    <div className="col-span-1 md:col-span-2 lg:col-span-2">
+                        {/* grid-cols-[0.8fr_1.2fr]: 
+                           First col gets 40% width, Second col gets 60% width 
+                        */}
+                        <div className="grid grid-cols-[0.9fr_1.2fr] gap-4 sm:gap-6">
+                            {/* Quick Links */}
+                            <div className="space-y-6">
+                                <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Quick Links</h4>
+                                <ul className="space-y-4">
+                                    {['Services', 'Insights', 'About Us', 'Contact'].map((link) => (
+                                        <li key={link}>
+                                            <a href="#" className="group flex items-center text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]">
+                                                {link}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
-                    {/* Our Services */}
-                    <div className="space-y-6">
-                        <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">Our Services</h4>
-                        <ul className="space-y-4">
-                            {['Mobile App Development', 'Web App Development', 'Digital Growth', 'Get In Touch'].map((service) => (
-                                <li key={service}>
-                                    <a href="#" className="text-white/40 hover:text-white transition-colors text-sm">
-                                        {service}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
+                            {/* Our Services - Now has more width */}
+                            <div className="space-y-6">
+                                <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Our Services</h4>
+                                <ul className="space-y-4">
+                                    {['Mobile App Development', 'Web App Development', 'Digital Growth', 'Strategy'].map((service) => (
+                                        <li key={service}>
+                                            <a href="#" className="text-white/40 hover:text-white transition-colors text-[14px] sm:text-[15px] leading-tight block">
+                                                {service}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Contact Information */}
                     <div className="space-y-6">
-                        <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">Get In Touch</h4>
+                        <h4 className="text-white font-bold text-xs sm:text-sm uppercase tracking-[0.2em]">Get In Touch</h4>
                         <ul className="space-y-4">
-                            <li className="flex items-center gap-3 text-white/40 text-sm">
-                                <Mail size={16} className="text-[#FF6B00]" />
-                                <a href="mailto:sales@digitrizon.com" className="hover:text-white transition-colors">sales@digitrizon.com</a>
+                            <li className="flex items-center gap-3 text-white/40 text-[14px] sm:text-[15px]">
+                                <Mail size={16} className="text-[#FF6B00] shrink-0" />
+                                <a href="mailto:sales@digitrizon.com" className="hover:text-white transition-colors truncate">sales@digitrizon.com</a>
                             </li>
-                            <li className="flex items-center gap-3 text-white/40 text-sm">
-                                <Phone size={16} className="text-[#FF6B00]" />
+                            <li className="flex items-center gap-3 text-white/40 text-[14px] sm:text-[15px]">
+                                <Phone size={16} className="text-[#FF6B00] shrink-0" />
                                 <a href="tel:+91XXXXXXXXXX" className="hover:text-white transition-colors">+91 XXXXXXXXXX</a>
                             </li>
-                            <li className="flex items-center gap-3 text-white/40 text-sm">
-                                <MapPin size={16} className="text-[#FF6B00]" />
-                                <span>Chennai, India</span>
+                            <li className="flex items-center gap-3 text-white/40 text-[14px] sm:text-[15px]">
+                                <MapPin size={16} className="text-[#FF6B00] shrink-0" />
+                                <span className="truncate">Chennai, India</span>
                             </li>
                         </ul>
 
@@ -84,8 +92,9 @@ export default function Footer() {
                                 <motion.a
                                     key={i}
                                     href={social.href}
-                                    whileHover={{ y: -3, color: '#FF6B00' }}
-                                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#FF6B00]/50 transition-colors"
+                                    whileHover={{ y: -3, color: '#FF6B00', borderColor: '#FF6B00' }}
+                                    whileTap={{ scale: 0.9 }}
+                                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 transition-all"
                                     aria-label={social.label}
                                 >
                                     {social.icon}
@@ -96,13 +105,13 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-white/20 text-xs tracking-widest">
-                        © {currentYear} <span className="text-white/40">DIGITRIZON</span>. ALL RIGHTS RESERVED.
+                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-white/20 text-[10px] md:text-xs tracking-widest text-center md:text-left">
+                        © {currentYear} <span className="text-white/40 font-bold">DIGITRIZON</span>. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex gap-8">
-                        <a href="#" className="text-white/20 hover:text-white text-xs transition-colors">Privacy Policy</a>
-                        <a href="#" className="text-white/20 hover:text-white text-xs transition-colors">Terms of Service</a>
+                        <a href="#" className="text-white/20 hover:text-white text-[10px] md:text-xs transition-colors">Privacy Policy</a>
+                        <a href="#" className="text-white/20 hover:text-white text-[10px] md:text-xs transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>
