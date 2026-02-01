@@ -38,31 +38,65 @@ const StaticButton = () => {
 function ServiceCard({ service, index }: { service: any, index: number }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="initial" // Vital: defines the starting point for variants
+            whileInView="animate"
+            whileHover="hover"
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{
-                y: -15,
-                transition: { type: "spring", stiffness: 400, damping: 25 }
+            // Variants for the entrance animation
+            variants={{
+                initial: { opacity: 0, y: 30 },
+                animate: { opacity: 1, y: 0, transition: { delay: index * 0.1 } }
             }}
             className="group relative flex flex-col h-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl"
         >
-            <div className="relative w-12 h-12 mb-6">
-                <Image src={service.image} alt={service.title} fill className="object-contain" />
-            </div>
-            <h3 className="text-[16px] font-bold text-white mb-3 uppercase tracking-wider group-hover:text-[#FF6B00] transition-colors">
-                {service.title}
-            </h3>
-            <p className="text-white/50 text-[15px] mb-8 flex-grow leading-relaxed">
-                {service.description}
-            </p>
+            {/* SVG Border Drawing Effect */}
+            <svg
+                className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
+                fill="none"
+            >
+                <motion.rect
+                    x="1" // Slight inset so stroke isn't clipped
+                    y="1"
+                    width="calc(100% - 2px)"
+                    height="calc(100% - 2px)"
+                    rx="24"
+                    stroke="#FF6B00"
+                    strokeWidth="0.5"
+                    strokeLinecap="round"
+                    variants={{
+                        hover: { pathLength: 1, opacity: 1 },
+                        initial: { pathLength: 0, opacity: 0 },
+                        animate: { pathLength: 0, opacity: 0 }
+                    }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                />
+            </svg>
 
-            <StaticButton />
+            {/* Lifting Content */}
+            <motion.div 
+                variants={{ 
+                    hover: { y: -15 }, // Explicit lifting effect
+                    initial: { y: 0 },
+                    animate: { y: 0 }
+                }} 
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="relative z-10 flex flex-col h-full"
+            >
+                <div className="relative w-12 h-12 mb-6">
+                    <Image src={service.image} alt={service.title} fill className="object-contain" />
+                </div>
+                <h3 className="text-[16px] font-bold text-white mb-3 uppercase tracking-wider group-hover:text-[#FF6B00] transition-colors">
+                    {service.title}
+                </h3>
+                <p className="text-white/50 text-[15px] mb-8 flex-grow leading-relaxed">
+                    {service.description}
+                </p>
+
+                <StaticButton />
+            </motion.div>
         </motion.div>
     );
 }
-
 export default function ServicesSection() {
     return (
         /* Padding set to py-0 to remove space above and below the section */
