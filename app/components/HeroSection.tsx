@@ -51,59 +51,56 @@ export default function HeroSection() {
             {/* --- NAVIGATION BAR --- */}
             <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
                 <div className="w-full px-2 py-3 md:px-6 md:py-6"> 
-                    <div
-                        className={`
-                          max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
-                          h-14 md:h-14 
-                          ${scrolled
-                                ? "bg-white/[0.03] border-white/[0.08] backdrop-blur-xl shadow-2xl"
-                                : "bg-transparent border-transparent"
-                            }
-                        `}
-                    >
-                        {/* LOGO CONTAINER: Adjusted min-width and overflow to handle large scale */}
-                        <div className="flex items-center min-w-[200px] md:min-w-[220px] h-full overflow-visible">
-                            <Image
-                                src="/images/Digitrizon.png"
-                                alt="Digitrizon Logo"
-                                width={180}
-                                height={60}
-                                /* MOBILE: scale-[2.4] for high visibility. 
-                                   translate-x-10 moves it right so the left-side scale doesn't get cropped.
-                                */
-                                className="w-auto h-12 md:h-15 scale-[2.4] translate-x-10 md:translate-x-0 md:pl-7 object-contain brightness-110"
-                                priority
-                            />
-                        </div>
+        <div
+            className={`
+              max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
+              h-14 md:h-14 
+              ${scrolled
+                    ? "bg-white/[0.03] border-white/[0.08] backdrop-blur-xl shadow-2xl"
+                    : "bg-transparent border-transparent"
+                }
+            `}
+        >
+            {/* LOGO CONTAINER: Reduced min-width on mobile to prevent pushing the toggle */}
+            <div className="flex items-center min-w-[120px] md:min-w-[220px] h-full overflow-visible relative">
+                <Image
+                    src="/images/Digitrizon.png"
+                    alt="Digitrizon Logo"
+                    width={180}
+                    height={60}
+                    // Kept your scaling and translation exactly as requested
+                    className="w-auto h-12 md:h-15 scale-[2.4] translate-x-10 md:translate-x-0 md:pl-7 object-contain brightness-110"
+                    priority
+                />
+            </div>
 
-                        {/* DESKTOP MENU */}
-                        <div className="hidden md:flex items-center gap-12">
-                            <div className="flex items-center gap-10">
-                                {navLinks.map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.href}
-                                        className="text-[12px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
-                                    >
-                                        {link.name}
-                                    </a>
-                                ))}
-                            </div>
-                            <button className="bg-white text-black px-6 py-2.5 rounded-full text-[12px] font-bold hover:bg-[#FF6B00] hover:text-white transition-all uppercase tracking-widest">
-                                Contact Us
-                            </button>
-                        </div>
-
-                        {/* MOBILE MENU TOGGLE */}
-                        <button
-                            className="md:hidden text-white p-1"
-                            onClick={() => setIsOpen(!isOpen)}
+            {/* DESKTOP MENU */}
+            <div className="hidden md:flex items-center gap-12">
+                <div className="flex items-center gap-10">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            className="text-[12px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
                         >
-                            {isOpen ? <X size={26} /> : <Menu size={26} />}
-                        </button>
-                    </div>
+                            {link.name}
+                        </a>
+                    ))}
                 </div>
+                <button className="bg-white text-black px-6 py-2.5 rounded-full text-[12px] font-bold hover:bg-[#FF6B00] hover:text-white transition-all uppercase tracking-widest">
+                    Contact Us
+                </button>
+            </div>
 
+            {/* MOBILE MENU TOGGLE: Added shrink-0 to ensure the button never gets squeezed out */}
+            <button
+                className="md:hidden text-white p-1 flex-shrink-0 relative z-50"
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                {isOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+        </div>
+    </div>
                 {/* MOBILE DROPDOWN */}
                 <AnimatePresence>
                     {isOpen && (
