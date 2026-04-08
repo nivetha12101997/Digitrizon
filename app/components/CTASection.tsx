@@ -15,7 +15,7 @@ export default function CTASection() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-[#FF6B00]/10 blur-[100px] pointer-events-none" />
 
             {/* 2. RUNNING LINE ANIMATIONS (Spanning full container width) */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-white/5 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-transparent/5 overflow-hidden">
                 <motion.div
                     initial={{ x: "-100%" }}
                     animate={{ x: "100%" }}
@@ -24,7 +24,7 @@ export default function CTASection() {
                 />
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/5 overflow-hidden">
+            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-transparent/5 overflow-hidden">
                 <motion.div
                     initial={{ x: "100%" }}
                     animate={{ x: "-100%" }}
@@ -49,7 +49,7 @@ export default function CTASection() {
                         transition={{ duration: 0.6 }}
                         className="text-3xl md:text-6xl font-bold text-white tracking-tighter leading-tight mb-3"
                     >
-                        Have an Idea? <span className="text-[#FF6B00]">Let’s Build It Together</span>
+                       Ready to Scale Your Next  <span className="text-[#FF6B00]">Big Move?</span>
                     </motion.h2>
 
                     <motion.p
@@ -59,29 +59,23 @@ export default function CTASection() {
                         transition={{ delay: 0.2 }}
                         className="text-white/40 text-[16px] md:text-[15px] max-w-xl leading-relaxed mb-6"
                     >
-                        Whether it's a mobile app, web app, or a digital marketing strategy, we’re here to shape your concept into a real, high-impact digital solution.
-                         
-                                                <span className="text-white/70 font-medium">Share your vision, and we’ll help you make it happen.</span>
+Take your idea from concept to a market-ready product with the right strategy and technology.                         
+                                                <span className="text-white/70 font-medium"> We build robust, scalable solutions that evolve as your business grows.</span>
                     </motion.p>
 
-                    <motion.div
-                        initial={{ backgroundColor: "#ffffff", color: "#000000" }}
-                        whileHover={{
-                            scale: 1.05,
-                            backgroundColor: "#FF6B00",
-                            color: "#ffffff",
-                            transition: { duration: 0.3 }
-                        }}
-                        whileTap={{ scale: 0.98 }}
-                        className="rounded-full shadow-lg overflow-hidden w-fit" // Added w-fit to keep the button from stretching
-                    >
-                        <a
-                            href="/contact"
-                            className="group relative px-8 py-3.5 font-bold uppercase tracking-widest text-[11px] flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(255,107,0,0.2)]"
-                        >
-                            Start Your Project
-                        </a>
-                    </motion.div>                </motion.div>
+<motion.button 
+  whileHover={{ 
+    scale: 1.05, 
+    boxShadow: "0px 0px 20px rgba(255, 107, 0, 0.3)",
+  }}
+  whileTap={{ scale: 0.95 }}
+  className="px-7 py-3 font-bold rounded-full text-[11px] uppercase tracking-widest
+             bg-white text-black hover:bg-[#FF6B00] hover:text-white transition-all duration-300"
+>
+  Start Your Project
+</motion.button>    
+                    
+                             </motion.div>
             </div>
         </section>
     );

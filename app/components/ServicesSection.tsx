@@ -1,145 +1,173 @@
-'use client';
-import React from "react";
-import { motion } from "framer-motion";
-import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+"use client";
 
-const services = [
-    {
-        title: "Mobile App Development",
-        image: "/images/mobile1.png",
-        description: 'We build secure, intuitive, and scalable mobile applications engineered for long-term performance and seamless cross-platform experience.'
-    },
-    {
-        title: "Web App Development",
-        image: "/images/api.png",
-        description: "We develop responsive, secure, and high-performing web applications that streamline workflows and elevate user experience.",
-    },
-    {
-        title: "Digital Marketing",
-        image: "/images/digitalMarketing.png",
-        description: "We support business growth through data-backed digital strategies focused on visibility, acquisition, and measurable performance."
-    },
+import { useEffect, useState, useRef, useMemo } from "react";
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+// Dynamically import demos
+const MobileAppDemo = dynamic(() => import("./MobileAppDemo"), { ssr: false, loading: () => <div style={{ background: "transparent" }} /> });
+const WebsitesDemo = dynamic(() => import("./WebsitesDemo"), { ssr: false, loading: () => <div style={{ background: "transparent" }} /> });
+const EcommerceDemo = dynamic(() => import("./EcommerceDemo"), { ssr: false, loading: () => <div style={{ background: "transparent" }} /> });
+const SaasDemo = dynamic(() => import("./SaasDemo"), { ssr: false, loading: () => <div style={{ background: "transparent" }} /> });
+const GrowthDemo = dynamic(() => import("./GrowthDemo"), { ssr: false, loading: () => <div style={{ background: "transparent" }} /> });
+
+type ServiceIndex = 0 | 1 | 2 | 3 | 4;
+
+const SERVICE_NAMES = ["Mobile App", "Web App", "E-Commerce", "SaaS Product", "Digital Growth"];
+const SERVICE_ICONS = ["📱", "🌐", "🛒", "⚡", "📈"];
+
+const CONTENT = [
+  { label: "Mobile App Development", title: "Secure. Intuitive.\nBuilt to Scale.", desc: "We build secure, intuitive, and scalable mobile applications..." },
+  { label: "Web App Development", title: "Responsive. Secure.\nHigh-Performing.", desc: "We develop responsive, secure, and high-performing web applications..." },
+  { label: "E-Commerce Development", title: "Powerful Stores.\nSeamless Sales.", desc: "We create powerful online stores..." },
+  { label: "SaaS Product Development", title: "Design. Build.\nLaunch. Scale.", desc: "We help startups design, build, and launch scalable SaaS..." },
+  { label: "Digital Growth", title: "Visibility.\nAcquisition.\nPerformance.", desc: "We support business growth through data-backed strategies..." },
 ];
 
-const StaticButton = () => {
-    return (
-        <div className="relative w-full max-w-[140px] h-[40px] rounded-full bg-white/90 flex items-center justify-center transition-all duration-300 group-hover:bg-[#FF6B00] group-hover:shadow-[0_0_20px_rgba(255,107,0,0.5)]">
-            <div className="flex items-center justify-between w-full px-5">
-                <span className="font-bold text-[10px] tracking-wider uppercase text-black group-hover:text-white transition-colors">
-                    Know More
-                </span>
-                <ArrowRight size={14} className="text-black group-hover:text-white group-hover:translate-x-1 transition-all" />
-            </div>
+const DEMOS = [MobileAppDemo, WebsitesDemo, EcommerceDemo, SaasDemo, GrowthDemo];
+
+export default function ServicesShowcase() {
+  const [active, setActive] = useState<ServiceIndex>(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // 1. Generate dynamic Slugs/IDs from the Content Labels
+  // This turns "Mobile App Development" into "#mobile-app-development"
+  const slugifiedItems = useMemo(() => {
+    return SERVICE_NAMES.map((item, index) => ({
+      index: index as ServiceIndex,
+      hash: `#${item.toLowerCase().replace(/\s+/g, "-")}`,
+    }));
+  }, []);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // 2. Handle Dynamic Hash Changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const currentHash = window.location.hash;
+      if (!currentHash) return;
+
+      console.log("Current Hash:", currentHash);
+      console.log("Slugified Items:", slugifiedItems);
+      const matchingItem = slugifiedItems.find((item) => item.hash === currentHash);
+      
+      if (matchingItem) {
+        setActive(matchingItem.index);
+        // Scroll to the section when a match is found
+        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    handleHashChange(); // Check on load
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [slugifiedItems]);
+
+  const handleShow = (i: ServiceIndex) => {
+    setActive(i);
+    // Update URL without jumping the page
+    const newHash = slugifiedItems[i].hash;
+    window.history.replaceState(null, "", newHash);
+  };
+
+  return (
+    <div ref={sectionRef} id="services" className="py-20" style={{ backgroundColor: "#000" }}>
+      <div className="hdr text-center mb-12">
+        <h1 className="text-3xl md:text-6xl font-bold text-white tracking-tighter mb-4">
+          What We Do 
+          <span className="text-[#FF6B00] px-3">Best</span>
+        </h1>
+        <p className="text-gray-400">Digital Craftsmanship for Ambitious Businesses</p>
+      </div>
+
+      {/* Desktop Nav */}
+      {!isMobile && (
+        <div className="flex justify-center mb-12">
+          <div className="flex bg-[#111] p-2 rounded-full border border-white/10">
+            {SERVICE_NAMES.map((name, i) => (
+              <button
+                key={name}
+                className={`px-6 py-2 rounded-full transition-all text-sm font-medium ${
+                  active === i ? "bg-white text-black" : "text-gray-400 hover:text-white"
+                }`}
+                onClick={() => handleShow(i as ServiceIndex)}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
         </div>
-    );
-};
+      )}
 
-function ServiceCard({ service, index }: { service: any, index: number }) {
-    return (
-        <motion.div
-            initial="initial" // Vital: defines the starting point for variants
-            whileInView="animate"
-            whileHover="hover"
-            viewport={{ once: true }}
-            // Variants for the entrance animation
-            variants={{
-                initial: { opacity: 0, y: 30 },
-                animate: { opacity: 1, y: 0, transition: { delay: index * 0.1 } }
-            }}
-            className="group relative flex flex-col h-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl"
-        >
-            {/* SVG Border Drawing Effect */}
-            <svg
-                className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
-                fill="none"
+      {/* Mobile Nav */}
+      {isMobile && (
+        <div className="flex overflow-x-auto gap-3 px-4 mb-10 no-scrollbar">
+          {SERVICE_NAMES.map((name, i) => (
+            <button
+              key={name}
+              onClick={() => handleShow(i as ServiceIndex)}
+              className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full border ${
+                active === i 
+                ? "bg-[#FF6B00] border-[#FF6B00] text-white" 
+                : "border-white/20 text-gray-400"
+              }`}
             >
-                <motion.rect
-                    x="1" // Slight inset so stroke isn't clipped
-                    y="1"
-                    width="calc(100% - 2px)"
-                    height="calc(100% - 2px)"
-                    rx="24"
-                    stroke="#FF6B00"
-                    strokeWidth="0.5"
-                    strokeLinecap="round"
-                    variants={{
-                        hover: { pathLength: 1, opacity: 1 },
-                        initial: { pathLength: 0, opacity: 0 },
-                        animate: { pathLength: 0, opacity: 0 }
-                    }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-            </svg>
+              <span>{SERVICE_ICONS[i]}</span>
+              <span className="text-xs whitespace-nowrap">{name}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
-            {/* Lifting Content */}
+      <div className="max-w-7xl mx-auto px-4">
+        {CONTENT.map((item, i) => {
+          const DemoComponent = DEMOS[i];
+          if (active !== i) return null; // Only render active for performance, or use CSS visibility
+
+          return (
             <motion.div 
-                variants={{ 
-                    hover: { y: -15 }, // Explicit lifting effect
-                    initial: { y: 0 },
-                    animate: { y: 0 }
-                }} 
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="relative z-10 flex flex-col h-full"
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
-                <div className="relative w-12 h-12 mb-6">
-                    <Image src={service.image} alt={service.title} fill className="object-contain" />
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-[#FF6B00] font-mono text-sm tracking-widest uppercase">
+                  <span className="w-8 h-[1px] bg-[#FF6B00]" />
+                  {item.label}
                 </div>
-                <h3 className="text-[16px] font-bold text-white mb-3 uppercase tracking-wider group-hover:text-[#FF6B00] transition-colors">
-                    {service.title}
-                </h3>
-                <p className="text-white/50 text-[15px] mb-8 flex-grow leading-relaxed">
-                    {service.description}
-                </p>
+                <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+                  {item.title.split("\n").map((line, idx) => (
+                    <span key={idx}>{line}<br/></span>
+                  ))}
+                </h2>
+                <p className="text-gray-400 text-lg max-w-md">{item.desc}</p>
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold uppercase text-xs tracking-widest"
+                >
+                  Know more <ArrowRight size={18} />
+                </motion.button>
+              </div>
 
-                <StaticButton />
+              <div className="relative aspect-square lg:aspect-video bg-[#111] rounded-2xl border border-white/10 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B00]/10 to-transparent" />
+                <div className="relative h-full w-full flex items-center justify-center">
+                  <DemoComponent />
+                </div>
+              </div>
             </motion.div>
-        </motion.div>
-    );
-}
-export default function ServicesSection() {
-    return (
-        /* Padding set to py-0 to remove space above and below the section */
-        <section className="bg-black py-0 px-6 relative overflow-hidden">
-
-            <div className="absolute inset-0 z-0 opacity-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:40px_40px]" />
-            </div>
-
-            <motion.div
-                animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-[#FF6B00]/20 rounded-full blur-[120px] pointer-events-none"
-            />
-
-            <div className="max-w-7xl mx-auto relative z-10">
-                <header className="mb-10 text-center">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl md:text-6xl font-bold text-white tracking-tighter"
-                    >
-                        What We Do <span className="text-[#FF6B00]">Best</span>
-                    </motion.h2>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-white/50 mt-4 max-w-2xl mx-auto text-[16px] md:text-[15px] leading-relaxed px-4 md:px-0"
-                    >
-                        Digital Craftsmanship for Ambitious Businesses
-                    </motion.p>
-                </header>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <ServiceCard key={index} service={service} index={index} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+          );
+        })}
+      </div>
+    </div>
+  );
 }

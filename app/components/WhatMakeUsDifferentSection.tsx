@@ -1,5 +1,6 @@
 'use client';
 import { motion, Variants } from "framer-motion";
+import { ArrowRight } from 'lucide-react';
 
 const listVariants: Variants = {
   hidden: { opacity: 0 },
@@ -28,7 +29,7 @@ const differentiators = [
 
 export default function WhatMakeUsDifferentSection() {
   return (
-    <section className="bg-black py-1 px-6 relative overflow-hidden">
+    <section className="bg-black py-8 lg:py-1 px-6 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#FF6B00]/5 to-transparent pointer-events-none" />
 
@@ -50,22 +51,21 @@ export default function WhatMakeUsDifferentSection() {
               DIGITRIZON blends strong engineering, modern UI/UX design, and analytics-driven growth strategies to build digital products that succeed in real-world markets.
             </p>
             
-            <motion.button 
-              // Initial state: White background, Black text
-              initial={{ backgroundColor: "#ffffff", color: "#000000" }}
-              // Hover state: Orange background, White text
-              whileHover={{ 
-                scale: 1.05, 
-                backgroundColor: "#FF6B00",
-                color: "#ffffff",
-                boxShadow: "0px 0px 20px rgba(255, 107, 0, 0.3)",
-                transition: { duration: 0.3 }
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-7 py-3 font-bold rounded-full transition-all text-[11px] uppercase tracking-widest"
-            >
-              Start Your Project
-            </motion.button>
+<motion.button 
+  whileHover={{ 
+    scale: 1.05, 
+    backgroundColor: "#FF6B00",
+    color: "#ffffff",
+    boxShadow: "0px 0px 20px rgba(255, 107, 0, 0.3)",
+    transition: { duration: 0.3 }
+  }}
+  whileTap={{ scale: 0.95 }}
+  // ADDED: flex items-center justify-center gap-2
+  className="flex items-center justify-center gap-2 px-7 py-3 font-bold bg-white text-black rounded-full text-[11px] uppercase tracking-widest"
+>
+  <span>Start Your Project</span>
+  {/* <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" /> */}
+</motion.button>
           </motion.div>
         </div>
 
@@ -82,7 +82,7 @@ export default function WhatMakeUsDifferentSection() {
               key={index}
               variants={itemVariants}
               whileHover={{ x: 8 }}
-              className="group relative p-3.5 px-5 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-300 overflow-hidden flex items-center gap-4 w-full max-w-[420px] cursor-default"
+              className="group relative p-3.5 px-5 rounded-xl border border-white/5 bg-transparent/[0.01] hover:bg-transparent/[0.03] transition-all duration-300 overflow-hidden flex items-center gap-4 w-full max-w-[420px] cursor-default"
             >
               {/* Left Border Accent */}
               <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#FF6B00] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-center" />

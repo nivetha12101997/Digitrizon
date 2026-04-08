@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import Navbar from './navbar';
 
 const navLinks = [
     { name: 'Services', href: '#services' },
@@ -10,25 +11,19 @@ const navLinks = [
     { name: "About", href: "#about" }
 ];
 
-const GetStartedButton = ({ mobile = false }) => {
+export const GetStartedButton = ({ mobile = false }) => {
     return (
         <motion.button
-            initial={{ backgroundColor: "#ffffff", color: "#000000" }}
-            whileHover={{ 
-                scale: 1.05, 
+            whileHover={{
+                scale: 1.05,
                 backgroundColor: "#FF6B00",
                 color: "#ffffff",
-                transition: { duration: 0.3 } 
+                transition: { duration: 0.3 }
             }}
-            whileTap={{ 
-                scale: 0.95,
-                backgroundColor: "#FF6B00",
-                color: "#ffffff",
-                transition: { duration: 0.2 } 
-            }}
-            className={`rounded-full font-bold shadow-lg flex items-center gap-2 group whitespace-nowrap uppercase tracking-widest border border-transparent ${
-                mobile ? "px-6 py-2.5 text-[11px]" : "px-8 py-3 text-[11px]"
-            }`}
+            whileTap={{ scale: 0.95 }}
+            className={`rounded-full font-bold shadow-lg flex items-center gap-2 group whitespace-nowrap uppercase tracking-widest border border-transparent bg-white text-black ${mobile ? "px-6 py-2.5 text-[11px]" : "px-8 py-3 text-[11px]"
+                }`}
+
         >
             {mobile ? 'Contact Us' : 'Get Started'}
             {mobile ? null : <ArrowRight size={mobile ? 14 : 18} className="transition-transform group-hover:translate-x-1" />}
@@ -49,85 +44,7 @@ export default function HeroSection() {
     return (
         <div className="bg-black min-h-screen w-full overflow-x-hidden">
             {/* --- NAVIGATION BAR --- */}
-            <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-500">
-                <div className="w-full px-2 py-3 md:px-6 md:py-6"> 
-        <div
-            className={`
-              max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 rounded-full border transition-all duration-500
-              h-14 md:h-14 
-              ${scrolled
-                    ? "bg-white/[0.03] border-white/[0.08] backdrop-blur-xl shadow-2xl"
-                    : "bg-transparent border-transparent"
-                }
-            `}
-        >
-            {/* LOGO CONTAINER: Reduced min-width on mobile to prevent pushing the toggle */}
-            <div className="flex items-center min-w-[120px] md:min-w-[220px] h-full overflow-visible relative">
-                <Image
-                    src="/images/Digitrizon.png"
-                    alt="Digitrizon Logo"
-                    width={180}
-                    height={60}
-                    // Kept your scaling and translation exactly as requested
-                    className="w-auto h-12 md:h-15 scale-[2.4] translate-x-10 md:translate-x-0 md:pl-7 object-contain brightness-110"
-                    priority
-                />
-            </div>
-
-            {/* DESKTOP MENU */}
-            <div className="hidden md:flex items-center gap-12">
-                <div className="flex items-center gap-10">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-[12px] font-medium text-white/60 hover:text-[#FF6B00] transition-colors uppercase tracking-wider"
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
-                <button className="bg-white text-black px-6 py-2.5 rounded-full text-[12px] font-bold hover:bg-[#FF6B00] hover:text-white transition-all uppercase tracking-widest">
-                    Contact Us
-                </button>
-            </div>
-
-            {/* MOBILE MENU TOGGLE: Added shrink-0 to ensure the button never gets squeezed out */}
-            <button
-                className="md:hidden text-white p-1 flex-shrink-0 relative z-50"
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                {isOpen ? <X size={26} /> : <Menu size={26} />}
-            </button>
-        </div>
-    </div>
-                {/* MOBILE DROPDOWN */}
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="absolute top-24 left-4 right-4 p-6 rounded-[1.5rem] bg-black/95 border border-white/[0.08] backdrop-blur-2xl md:hidden z-50 shadow-2xl"
-                        >
-                            <div className="flex flex-col gap-6 items-center text-center">
-                                {navLinks.map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className="text-[11px] font-bold text-white/70 hover:text-[#FF6B00] transition-colors uppercase tracking-[0.2em]"
-                                    >
-                                        {link.name}
-                                    </a>
-                                ))}
-                                <hr className="w-full border-white/5 my-1" />
-                                <GetStartedButton mobile={true} />
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </nav>
+<Navbar/>
 
             {/* --- HERO SECTION --- */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -159,14 +76,15 @@ export default function HeroSection() {
                     </motion.h1>
 
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="max-w-2xl mx-auto text-[16px] md:text-xl text-white/50 leading-relaxed mb-10 md:mb-12"
-                    >
-                        <span className="text-white font-semibold">DIGITRIZON</span> builds scalable mobile apps, web apps, and tech-driven digital growth solutions.
-                    </motion.p>
-                    
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4 }}
+    /* Changed max-w-2xl to max-w-4xl and added text-balance */
+    className="max-w-4xl mx-auto text-[15px]  text-white/50 leading-relaxed mb-10 md:mb-12 text-center"
+>
+    <span className="text-white font-semibold">DIGITRIZON </span>
+    builds scalable, high-performance digital solutions designed for modern businesses. Helping you launch faster, grow smarter, and stay competitive in a rapidly evolving market.
+</motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

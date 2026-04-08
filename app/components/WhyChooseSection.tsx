@@ -7,24 +7,25 @@ const highlights = [
   { text: "Scalable, quality-driven development" },
   { text: "Data-backed digital growth execution" },
   { text: "Reliable timelines and disciplined delivery" },
-  { text: 'End-to-end partnership from concept to growth' }
+  { text: 'End-to-end partnership from concept to growth' },
+  { text: "Flexible engagement models tailored to your business needs" }
 ];
 
 export default function WhyChooseSection() {
   return (
-    <section className="relative w-full bg-black py-16 px-6 overflow-hidden">
+    <section className="relative w-full bg-black py-16 px-6 overflow-hidden" id='mobile-demo'>
       
       {/* Background Ambient Glow */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#FF6B00]/10 blur-[140px] pointer-events-none opacity-60" />
-      </div>
+      </div> */}
 
       {/* Top Border Line */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF6B00]/20 to-transparent" />
+      {/* <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF6B00]/20 to-transparent" /> */}
       
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
-<motion.h2 
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -45,7 +46,7 @@ export default function WhyChooseSection() {
           </motion.p>
         </div>
 
-        {/* Value List Grid */}
+        {/* Value List Grid - Standard 2-column layout on medium screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {highlights.map((item, index) => {
             const isLast = index === highlights.length - 1;
@@ -57,8 +58,9 @@ export default function WhyChooseSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`flex items-center gap-4 p-5 rounded-2xl border border-white/5 bg-white/[0.03] transition-all group hover:border-[#FF6B00]/30 ${
-                  isLast ? "md:col-span-2 justify-center bg-gradient-to-r from-transparent via-[#FF6B00]/5 to-transparent border-[#FF6B00]/10" : ""
+                className={`flex items-center gap-4 p-5 rounded-2xl border border-white/5 bg-transparent/[0.03] transition-all group hover:border-[#FF6B00]/30 ${
+                  // Removed col-span-2 so it stays in the grid flow
+                  isLast ? "bg-gradient-to-r from-transparent via-[#FF6B00]/5 to-transparent border-[#FF6B00]/10" : ""
                 }`}
               >
                 {/* Standardized Tick Icon */}
@@ -66,8 +68,8 @@ export default function WhyChooseSection() {
                   <Check size={16} strokeWidth={3} />
                 </div>
 
-                {/* Standardized to 14px */}
-                <span className={`text-white/80 font-bold text-[16px] uppercase tracking-wide ${isLast ? "text-white" : ""}`}>
+                {/* Standardized Text */}
+                <span className={`text-white/80 font-bold text-[14px] md:text-[16px] uppercase tracking-wide transition-colors group-hover:text-white ${isLast ? "text-white" : ""}`}>
                   {item.text}
                 </span>
               </motion.div>

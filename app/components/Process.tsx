@@ -79,7 +79,7 @@ export default function FloatingProcess() {
     const totalLineLength = (steps.length - 1) * ITEM_WIDTH;
 
     return (
-        <section ref={targetRef} className="relative h-[400vh] bg-black">
+        <section ref={targetRef} className="relative h-[200vh] bg-black">
             <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
 
                 {/* Header */}
