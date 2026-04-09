@@ -117,11 +117,11 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-center gap-3 text-white/40 text-[14px] sm:text-[15px]">
                                 <Mail size={16} className="text-[#FF6B00] shrink-0" />
-                                <a href="mailto:sales@digitrizon.com" className="hover:text-white transition-colors truncate">sales@digitrizon.com</a>
+                                <a href="mailto:info@digitrizon.com" className="hover:text-white transition-colors truncate">info@digitrizon.com</a>
                             </li>
                             <li className="flex items-center gap-3 text-white/40 text-[14px] sm:text-[15px]">
                                 <Phone size={16} className="text-[#FF6B00] shrink-0" />
-                                <a href="tel:+91XXXXXXXXXX" className="hover:text-white transition-colors">+91 XXXXXXXXXX</a>
+                                <a href="tel:+91-7358926159" className="hover:text-white transition-colors">+91 7358926159</a>
                             </li>
                             <li className="flex items-center gap-3 text-white/40 text-[14px] sm:text-[15px]">
                                 <MapPin size={16} className="text-[#FF6B00] shrink-0" />
