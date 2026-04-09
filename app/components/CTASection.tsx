@@ -59,8 +59,8 @@ export default function CTASection() {
                         transition={{ delay: 0.2 }}
                         className="text-white/40 text-[16px] md:text-[15px] max-w-xl leading-relaxed mb-6"
                     >
-Take your idea from concept to a market-ready product with the right strategy and technology.                         
-                                                <span className="text-white/70 font-medium"> We build robust, scalable solutions that evolve as your business grows.</span>
+Take your idea from concept to a market-ready product with the right strategy and technology.We build robust, scalable solutions that evolve as your business grows.                         
+                                                {/* <span className="text-white/70 font-medium"> We build robust, scalable solutions that evolve as your business grows.</span> */}
                     </motion.p>
 
 <motion.button 

@@ -30,7 +30,7 @@ export default function Footer() {
     ];
 
     const handleNavigation = (url) => {
-        router.push(url);
+        // router.push(url);
     };
 
     const socialLinks = [
@@ -43,7 +43,7 @@ export default function Footer() {
             isGradient: true
         },
         { icon: <Facebook size={18} />, href: "#", label: "Facebook", color: "#1877F2" },
-        { icon: <Youtube size={18} />, href: "#", label: "YouTube", color: "#FF0000" },
+        // { icon: <Youtube size={18} />, href: "#", label: "YouTube", color: "#FF0000" },
     ];
 
     return (
@@ -92,9 +92,13 @@ export default function Footer() {
                             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Insights</h4>
                             <ul className="space-y-4">
                                 <li>
-                                    <Link href="/Insights/Blogs" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]">
-                                        Blogs
-                                    </Link>
+                                    {/* <Link href="/Insights/Blogs" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]"> */}
+                                        <button
+                                        onClick={() => handleNavigation(service.href)}
+                                        className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
+                                            Blogs
+                                    </button>
+                                    {/* </Link> */}
                                 </li>
                             </ul>
                         </div>
@@ -103,9 +107,13 @@ export default function Footer() {
                             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Company</h4>
                             <ul className="space-y-4">
                                 <li>
-                                    <Link href="/Company/About" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]">
-                                        About Us
-                                    </Link>
+                                    {/* <Link href="/Company/About" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]"> */}
+                                                                        <button
+                                        onClick={() => handleNavigation(service.href)}
+                                        className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
+                                            About Us
+                                    </button>
+                                    {/* </Link> */}
                                 </li>
                             </ul>
                         </div>
@@ -154,8 +162,8 @@ export default function Footer() {
                         © {currentYear} <span className="text-white/40 font-bold">DIGITRIZON</span>. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex gap-8">
-                        <Link href="/PrivacyPolicy" className="text-white/20 hover:text-white text-[10px] md:text-xs transition-colors">Privacy Policy</Link>
-                        <Link href="/TermsOfService" className="text-white/20 hover:text-white text-[10px] md:text-xs transition-colors">Terms of Service</Link>
+                        {/* <Link href="/PrivacyPolicy" className="text-white/20 hover:text-white text-[10px] md:text-xs transition-colors">Privacy Policy</Link>
+                        <Link href="/TermsOfService" className="text-white/20 hover:text-white text-[10px] md:text-xs transition-colors">Terms of Service</Link> */}
                     </div>
                 </div>
             </div>

@@ -83,7 +83,7 @@ const Navbar = () => {
                     {title}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
-                <AnimatePresence>
+                {/* <AnimatePresence>
                     {isDropdownOpen && (
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
@@ -100,7 +100,7 @@ const Navbar = () => {
                             </div>
                         </motion.div>
                     )}
-                </AnimatePresence>
+                </AnimatePresence> */}
             </div>
         );
     };
@@ -157,7 +157,7 @@ const Navbar = () => {
                                         <ChevronDown size={16} className={`transition-transform ${mobileDropdown === item.id ? 'rotate-180' : ''}`} />
                                     </button>
                                     
-                                    <AnimatePresence>
+                                    {/* <AnimatePresence>
                                         {mobileDropdown === item.id && (
                                             <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-white/5 rounded-xl mb-4">
                                                 {item.links.map((link) => (
@@ -167,7 +167,7 @@ const Navbar = () => {
                                                 ))}
                                             </motion.div>
                                         )}
-                                    </AnimatePresence>
+                                    </AnimatePresence> */}
                                 </div>
                             ))}
                             <button className="mt-6 w-full bg-[#FF6B00] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">

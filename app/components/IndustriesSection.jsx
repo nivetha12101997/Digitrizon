@@ -7,7 +7,7 @@ const industries = [
   { name: 'Education & EdTech', url: '/images/education_d.png' },
   { name: 'Energy & Utilities', url: '/images/energy_d.png' },
   { name: 'Fintech & Banking', url: '/images/bank_d.png' },
-  { name: 'FoodTech & Delivery', url: '/images/food_d.png' },
+  { name: 'FoodTech & Delivery', url: '/images/Food_d.png' },
   { name: 'Healthcare & Wellness', url: '/images/healthcare_d.png' },
   { name: 'Hospitality & Travel', url: '/images/tourism_d.png' },
   { name: 'Logistics & Supply Chain', url: '/images/logistics_d.png' },

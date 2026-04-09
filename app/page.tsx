@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     description: 'Transform your vision into digital reality with DIGITRIZON.',
   },
   icons:{
-// icon: '/favicon.ico', 
-icon:'/images/Digitrizon_Favi.png',
+icon: '/favicon.ico', 
+// icon:'/images/Digitrizon_Favi.png',
 // icon:[
 //   { url: '/images/Digitrizon_Favi.png', sizes: '512x512', type: 'image/png' },
 // ],
