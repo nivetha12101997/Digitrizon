@@ -17,28 +17,28 @@ import Footer from './components/Footer';
 import ServiceShowcase from './components/ServiceShowcase';
 import ServicesShowcase from './components/ServicesShowcase';
 import IndustriesSection from './components/IndustriesSection';
-export const metadata: Metadata = {
-  title: 'DIGITRIZON - Mobile Apps, Web Apps & Digital Marketing',
-  description: 'Transform your vision into digital reality with DIGITRIZON. We build cutting-edge mobile apps, web applications, and digital marketing strategies that drive business growth.',
-  keywords: 'mobile app development, web app development, digital marketing, app development company, web development',
-  authors: [{ name: 'DIGITRIZON' }],
-  robots: 'index, follow',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    title: 'DIGITRIZON - Mobile Apps, Web Apps & Digital Marketing',
-    description: 'Transform your vision into digital reality with DIGITRIZON.',
-  },
-  icons:{
-icon: '/favicon.ico', 
-// icon:'/images/Digitrizon_Favi.png',
-// icon:[
-//   { url: '/images/Digitrizon_Favi.png', sizes: '512x512', type: 'image/png' },
-// ],
-    shortcut: '/images/Digitrizon_Favi.png',
-  apple: '/images/Digitrizon_Favi.png', // Important for mobile bookmarks  
-  }
-};
+// export const metadata: Metadata = {
+//   title: 'DIGITRIZON - Mobile Apps, Web Apps & Digital Marketing',
+//   description: 'Transform your vision into digital reality with DIGITRIZON. We build cutting-edge mobile apps, web applications, and digital marketing strategies that drive business growth.',
+//   keywords: 'mobile app development, web app development, digital marketing, app development company, web development',
+//   authors: [{ name: 'DIGITRIZON' }],
+//   robots: 'index, follow',
+//   openGraph: {
+//     type: 'website',
+//     locale: 'en_US',
+//     title: 'DIGITRIZON - Mobile Apps, Web Apps & Digital Marketing',
+//     description: 'Transform your vision into digital reality with DIGITRIZON.',
+//   },
+//   icons:{
+// icon: '/favicon.ico', 
+// // icon:'/images/Digitrizon_Favi.png',
+// // icon:[
+// //   { url: '/images/Digitrizon_Favi.png', sizes: '512x512', type: 'image/png' },
+// // ],
+//     shortcut: '/images/Digitrizon_Favi.png',
+//   apple: '/images/Digitrizon_Favi.png', // Important for mobile bookmarks  
+//   }
+// };
 
 
 
