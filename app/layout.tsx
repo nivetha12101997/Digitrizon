@@ -16,9 +16,13 @@ const geistMono = Geist_Mono({
 // Metadata stays here in the Server Component!
 // app/layout.tsx
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.digitrizon.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "DIGITRIZON | Scalable Digital Product Development Company",
-    template: "%s | DIGITRIZON", // This appends the site name to page-specific titles
+    template: "%s | DIGITRIZON", 
   },
   description: "DIGITRIZON builds scalable mobile apps, web platforms, SaaS products, and e-commerce solutions with performance-driven digital growth strategies for modern businesses.",
   icons: {
