@@ -82,7 +82,7 @@ export default function ServicesShowcase() {
 
         <h1 className="text-3xl md:text-6xl font-bold text-white tracking-tighter mb-4 md:mb-6">
           What We Do 
-          <span className="text-3xl md:text-6xl font-bold text-[#FF6B00] tracking-tighter mb-4 md:mb-6 p-3">Best</span>
+          <span className="text-3xl md:text-6xl font-bold text-[#FF6B00] tracking-tighter mb-4 md:mb-6 p-2">Best</span>
         </h1>
         <p className="hsub"> Digital Craftsmanship for Ambitious Businesses</p>
       </div>

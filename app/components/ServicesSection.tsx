@@ -82,7 +82,7 @@ export default function ServicesShowcase() {
       <div className="hdr text-center mb-12">
         <h1 className="text-3xl md:text-6xl font-bold text-white tracking-tighter mb-4">
           What We Do 
-          <span className="text-[#FF6B00] px-3">Best</span>
+          <span className="text-[#FF6B00] px-2">Best</span>
         </h1>
         <p className="text-gray-400">Digital Craftsmanship for Ambitious Businesses</p>
       </div>
