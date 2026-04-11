@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "DIGITRIZON",
     images: [
       {
-        url: "/images/OG_Logo.png",
+        url: "/images/LogoDigitrizon.jpg",
         width: 1200,
         height: 630,
         alt: "DIGITRIZON - Digital Product Development Company",
@@ -99,7 +99,7 @@ export default function RootLayout({
         "@type": "Organization",
         name: "DIGITRIZON",
         url: "https://www.digitrizon.com",
-        logo: "https://www.digitrizon.com/images/FooterLogo.png",
+        logo: "https://www.digitrizon.com/images/LogoDigitrizon.jpg",
         sameAs: [
           "https://www.linkedin.com/company/digitrizon"
         ]
