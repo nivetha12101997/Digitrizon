@@ -120,9 +120,9 @@ export default function RootLayout({
     <html lang="en">
       {/* ✅ ADD HERE */}
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: light)" />
-        <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
