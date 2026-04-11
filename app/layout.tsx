@@ -16,19 +16,74 @@ const geistMono = Geist_Mono({
 // Metadata stays here in the Server Component!
 // app/layout.tsx
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.digitrizon.com'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL("https://www.digitrizon.com"),
+
   title: {
-    default: "DIGITRIZON | Scalable Digital Product Development Company",
-    template: "%s | DIGITRIZON", 
+    default: "DIGITRIZON | Web, Mobile, SaaS & eCommerce Development",
+    template: "%s | DIGITRIZON",
   },
-  description: "DIGITRIZON builds scalable mobile apps, web platforms, SaaS products, and e-commerce solutions with performance-driven digital growth strategies for modern businesses.",
+
+  description:
+    "DIGITRIZON builds web, mobile, SaaS, and eCommerce solutions with digital growth strategies to help businesses scale faster.",
+
+  keywords: [
+    "digital product development company",
+    "web development company",
+    "mobile app development company",
+    "SaaS development company",
+    "eCommerce development company",
+    "Next.js development company",
+    "React development company",
+    "React Native development company",
+    "custom software development",
+    "digital growth solutions",
+    "startup product development",
+  ],
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "DIGITRIZON | Web, Mobile, SaaS & eCommerce Development",
+    description:
+      "Build scalable web, mobile, SaaS, and eCommerce solutions with digital growth strategies.",
+    url: "https://www.digitrizon.com",
+    siteName: "DIGITRIZON",
+    images: [
+      {
+        url: "/images/FooterLogo.png",
+        width: 1200,
+        height: 630,
+        alt: "DIGITRIZON - Digital Product Development Company",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "DIGITRIZON | Web, Mobile, SaaS & eCommerce Development",
+    description:
+      "Build scalable web, mobile, SaaS, and eCommerce solutions with DIGITRIZON.",
+    images: ["/images/FooterLogo.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/images/Digitrizon_Favi.png',
-    apple: '/images/Digitrizon_Favi.png',
+    icon: "/favicon.ico",
   },
 };
 
