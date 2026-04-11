@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.digitrizon.com",
+    canonical: "/",
   },
 
   openGraph: {
@@ -92,7 +92,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const schema = {
+    const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -118,7 +118,7 @@ export default function RootLayout({
   };
   return (
     <html lang="en">
-      {/* ✅ ADD HERE */}
+          {/* ✅ ADD HERE */}
       <head>
         <link rel="icon" href="/favicon.ico" />
         <script
