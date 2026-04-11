@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "DIGITRIZON",
     images: [
       {
-        url: "/images/FooterLogo.png",
+        url: "/images/LogoDigitrizon.jpg",
         width: 1200,
         height: 630,
         alt: "DIGITRIZON - Digital Product Development Company",
