@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "/",
+    canonical: "https://www.digitrizon.com/",
   },
 
   openGraph: {
