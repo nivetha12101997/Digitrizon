@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "DIGITRIZON",
     images: [
       {
-        url: "/images/LogoDigitrizon.jpg",
+        url: "/images/OG_Logo.png",
         width: 1200,
         height: 630,
         alt: "DIGITRIZON - Digital Product Development Company",
@@ -92,7 +92,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    const schema = {
+  const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -118,9 +118,11 @@ export default function RootLayout({
   };
   return (
     <html lang="en">
-          {/* ✅ ADD HERE */}
+      {/* ✅ ADD HERE */}
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: light)" />
+        <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
