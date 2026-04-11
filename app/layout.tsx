@@ -92,8 +92,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+    const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "DIGITRIZON",
+        url: "https://www.digitrizon.com",
+        logo: "https://www.digitrizon.com/images/FooterLogo.png",
+        sameAs: [
+          "https://www.linkedin.com/company/digitrizon"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        name: "DIGITRIZON",
+        url: "https://www.digitrizon.com",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://www.digitrizon.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  };
   return (
     <html lang="en">
+          {/* ✅ ADD HERE */}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
         {/* <DevToolsBlocker /> */}
         <ClientWrapper>
