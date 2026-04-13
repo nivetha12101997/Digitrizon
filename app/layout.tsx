@@ -4,6 +4,8 @@ import "./globals.css";
 import ClientWrapper from "./components/ClientWrapper"; // Import the new wrapper
 // import DevToolsBlocker from "./components/DevToolsBlocker"; // Import the DevTools blocker
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -128,6 +130,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
+        <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-Y5XN3VKH0Q"
+    strategy="afterInteractive"
+  />
+  <Script id="google-analytics" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y5XN3VKH0Q');
+    `}
+  </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
         {/* <DevToolsBlocker /> */}
