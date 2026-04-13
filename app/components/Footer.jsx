@@ -1,9 +1,10 @@
 'use client';
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Youtube, Twitter,X } from 'lucide-react';
 import Link from "next/link";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { SiX } from "react-icons/si";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -34,15 +35,17 @@ export default function Footer() {
     };
 
     const socialLinks = [
-        { icon: <Linkedin size={18} />, href: "#", label: "LinkedIn", color: "#0A66C2" },
+        { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/digitrizon/", label: "LinkedIn", color: "#0A66C2" },
         {
             icon: <Instagram size={18} style={{ stroke: "url(#instagram-gradient)" }} />,
-            href: "#",
+            href: "https://www.instagram.com/digitrizon?igsh=MW0wMHJ1Mm54bDVrYQ==",
             label: "Instagram",
             color: "#E1306C",
             isGradient: true
         },
-        { icon: <Facebook size={18} />, href: "#", label: "Facebook", color: "#1877F2" },
+        { icon: <Facebook size={18} />, href: "https://www.facebook.com/profile.php?id=61574275359685", label: "Facebook", color: "#1877F2" },
+        { icon: <SiX size={14} />, href: "https://twitter.com/digitrizon", label: "X (Twitter)", color: "#ffffff" },
+        // { icon: <X size={18} />, href: "https://twitter.com/digitrizon", label: "Twitter", color: "#1DA1F2" },
         // { icon: <Youtube size={18} />, href: "#", label: "YouTube", color: "#FF0000" },
     ];
 
@@ -142,6 +145,8 @@ export default function Footer() {
                                 <motion.a
                                     key={social.label}
                                     href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     style={{
                                         color: social.isGradient ? 'none' : social.color,
                                         borderColor: `${social.color}44`

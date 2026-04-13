@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "./components/ClientWrapper"; // Import the new wrapper
 import DevToolsBlocker from "./components/DevToolsBlocker"; // Import the DevTools blocker
+import { GoogleAnalytics } from "@next/third-parties/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -130,6 +131,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
         {/* <DevToolsBlocker /> */}
+        <GoogleAnalytics gaId="G-Y5XN3VKH0Q" />
         <ClientWrapper>
           {children}
         </ClientWrapper>
