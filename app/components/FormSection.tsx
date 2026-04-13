@@ -184,11 +184,11 @@ export default function FormSection() {
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                 >
                   <option className="bg-neutral-900" value="" disabled>Select a service...</option>
-                  <option className="bg-neutral-900" value="Mobile App Development">Mobile App Development</option>
-                  <option className="bg-neutral-900" value="Web Development">Web Development</option>
-                  <option className="bg-neutral-900" value="E-commerce">E-commerce</option>
-                  <option className="bg-neutral-900" value="SaaS Product">SaaS Product</option>
-                  <option className="bg-neutral-900" value="Digital Marketing">Digital Marketing</option>
+                  <option className="bg-neutral-900" value="Mobile App Development">Mobile Apps</option>
+                  <option className="bg-neutral-900" value="Web Development">Web Apps</option>
+                  <option className="bg-neutral-900" value="E-commerce">E-commerce platforms</option>
+                  <option className="bg-neutral-900" value="SaaS Product">SaaS Products</option>
+                  <option className="bg-neutral-900" value="Digital Marketing">Digital Growth</option>
                 </select>
                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 pointer-events-none" size={16} />
               </div>
