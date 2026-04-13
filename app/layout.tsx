@@ -130,7 +130,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-        <Script
+        {/* <Script
     src="https://www.googletagmanager.com/gtag/js?id=G-Y5XN3VKH0Q"
     strategy="afterInteractive"
   />
@@ -141,7 +141,7 @@ export default function RootLayout({
       gtag('js', new Date());
       gtag('config', 'G-Y5XN3VKH0Q');
     `}
-  </Script>
+  </Script> */}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
         {/* <DevToolsBlocker /> */}
