@@ -24,7 +24,7 @@ const IndustriesSection = () => {
     /* Background with a subtle radial gradient for depth */
     <section className="relative bg-[#050505] py-24 px-6 overflow-hidden">
       
-      {/* Updated Decorative Glow Orb: Changed 70% to 50% to ensure it doesn't hit the bottom edge */}
+      {/* Decorative Glow Orb */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(255,107,0,0.08)_0%,_transparent_50%)] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
@@ -39,35 +39,35 @@ const IndustriesSection = () => {
           </p>
         </div>
 
-        {/* Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        {/* Grid Section: grid-cols-2 applied for mobile view */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
           {industries.map((industry, index) => (
             <div 
               key={index}
-              className="group relative p-2 transition-all duration-500
+              className="group relative p-4 transition-all duration-500
                          /* Glassmorphism Classes */
                          bg-white/[0.03] backdrop-blur-md 
                          border border-white/[0.08] rounded-2xl
                          /* Hover Effects */
                          hover:bg-white/[0.07] hover:border-[#FF6B00]/50 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(255,107,0,0.15)]
-                         /* Flex Layout */
-                         flex flex-row lg:flex-col items-center lg:justify-center gap-4 lg:gap-3"
+                         /* Center layout for both mobile and desktop */
+                         flex flex-col items-center justify-center text-center gap-3"
             >
               {/* Icon Container */}
               <div className="flex-shrink-0 transition-transform duration-500 group-hover:scale-110">
                 <Image 
                   src={industry.url}
                   alt={industry.name}
-                  width={20} 
-                  height={20}
+                  width={40} 
+                  height={40}
                   className="w-10 h-10 lg:w-14 lg:h-14 object-contain brightness-125 grayscale group-hover:grayscale-0 transition-all duration-500"
                   priority
                 />
               </div>
 
               {/* Text Content */}
-              <div className="flex flex-col items-start lg:items-center">
-                <h3 className="text-gray-300 text-sm md:text-base font-medium group-hover:text-white transition-colors duration-300 leading-tight">
+              <div className="flex flex-col items-center">
+                <h3 className="text-gray-300 text-xs sm:text-sm md:text-base font-medium group-hover:text-white transition-colors duration-300 leading-tight">
                   {industry.name}
                 </h3>
               </div>
