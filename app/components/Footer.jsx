@@ -31,8 +31,14 @@ export default function Footer() {
     ];
 
     const handleNavigation = (url) => {
-        // router.push(url);
+        router.push(url);
     };
+
+    const companyLinks = [
+        { name: 'About Us', href: '/Company/About' },
+        // { name: 'Careers', href: '/Company/Careers' },
+        // { name: 'Contact', href: '/Company/Contact' },
+    ];
 
     const socialLinks = [
         { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/digitrizon/", label: "LinkedIn", color: "#0A66C2" },
@@ -45,7 +51,6 @@ export default function Footer() {
         },
         { icon: <Facebook size={18} />, href: "https://www.facebook.com/profile.php?id=61574275359685", label: "Facebook", color: "#1877F2" },
         { icon: <SiX size={14} />, href: "https://twitter.com/digitrizon", label: "X (Twitter)", color: "#ffffff" },
-        // { icon: <X size={18} />, href: "https://twitter.com/digitrizon", label: "Twitter", color: "#1DA1F2" },
         // { icon: <Youtube size={18} />, href: "#", label: "YouTube", color: "#FF0000" },
     ];
 
@@ -95,13 +100,13 @@ export default function Footer() {
                             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Insights</h4>
                             <ul className="space-y-4">
                                 <li>
-                                    {/* <Link href="/Insights/Blogs" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]"> */}
+                                    <Link href="/Insights/Blogs" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]">
                                         <button
                                         onClick={() => handleNavigation(service.href)}
                                         className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
                                             Blogs
                                     </button>
-                                    {/* </Link> */}
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -109,15 +114,16 @@ export default function Footer() {
                         <div className="space-y-6">
                             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Company</h4>
                             <ul className="space-y-4">
-                                <li>
-                                    {/* <Link href="/Company/About" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]"> */}
-                                                                        <button
-                                        onClick={() => handleNavigation(service.href)}
-                                        className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
-                                            About Us
-                                    </button>
-                                    {/* </Link> */}
-                                </li>
+                                {companyLinks.map((company) => (
+                                    <li key={company.name}>
+                                        <button 
+
+                                            onClick={() => handleNavigation(company.href)}
+                                            className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
+                                            {company.name}
+                                        </button>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
