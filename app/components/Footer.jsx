@@ -23,11 +23,11 @@ export default function Footer() {
     );
 
     const serviceLinks = [
-        { name: 'Mobile App Development', href: '/Services/MobileApps' },
-        { name: 'Web App Development', href: '/Services/WebApps' },
-        { name: 'E-commerce', href: '/Services/E-Commerce' },
-        { name: 'SaaS Product', href: '/Services/SaasProduct' },
-        { name: 'Digital Growth', href: '/Services/DigitalGrowth' },
+        { name: 'Mobile App Development', href: '#' },
+        { name: 'Web App Development', href: '#' },
+        { name: 'E-commerce', href: '#' },
+        { name: 'SaaS Product', href: '#' },
+        { name: 'Digital Growth', href: '#' },
     ];
 
     const handleNavigation = (url) => {
@@ -35,7 +35,7 @@ export default function Footer() {
     };
 
     const companyLinks = [
-        { name: 'About Us', href: '/Company/About' },
+        { name: 'About Us', href: '/company/about-us' },
         // { name: 'Careers', href: '/Company/Careers' },
         // { name: 'Contact', href: '/Company/Contact' },
     ];
@@ -86,7 +86,7 @@ export default function Footer() {
                                 <li key={service.name}>
                                     <button
                                         onClick={() => handleNavigation(service.href)}
-                                        className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
+                                        className=" cursor-pointer text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
                                         {service.name}
                                     </button>
                                 </li>
@@ -100,13 +100,11 @@ export default function Footer() {
                             <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Insights</h4>
                             <ul className="space-y-4">
                                 <li>
-                                    <Link href="/Insights/Blogs" className="text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px]">
                                         <button
-                                        onClick={() => handleNavigation(service.href)}
-                                        className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
+                                        // onClick={() => handleNavigation(service.href)}
+                                        className="cursor-pointer text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
                                             Blogs
                                     </button>
-                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -119,7 +117,7 @@ export default function Footer() {
                                         <button 
 
                                             onClick={() => handleNavigation(company.href)}
-                                            className="text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
+                                            className="cursor-pointer text-left text-white/40 hover:text-[#FF6B00] transition-colors text-[14px] sm:text-[15px] leading-tight block w-full">
                                             {company.name}
                                         </button>
                                     </li>

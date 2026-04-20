@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef , ReactNode} from 'react'
 import Image from 'next/image'
 import { ArrowRight, Sparkles, Zap, Target, Compass, Rocket ,BrainCircuit,Orbit,} from 'lucide-react'
 import { Button } from '../../components/ui/button'
@@ -8,6 +8,12 @@ import Navbar from '@/app/components/navbar'
 import Footer from '@/app/components/Footer'
 
 /* ============= Animated Background Components ============= */
+
+interface RevealProps {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}
 
 const HeroBackground = () => (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -107,15 +113,17 @@ const CTABackground = () => (
 )
 
 /* ============= Reveal wrapper ============= */
-const Reveal = ({ children, delay = 0, className = '' }) => {
-    const ref = useRef(null)
+const Reveal = ({ children, delay = 0, className = '' }: RevealProps) => {
+    const ref = useRef<HTMLDivElement>(null) // 1. Add Type to useRef
     useEffect(() => {
         const el = ref.current
         if (!el) return
+        
         const io = new IntersectionObserver(
             (entries) => {
                 entries.forEach((e) => {
                     if (e.isIntersecting) {
+                        // 2. Access style safely
                         el.style.animation = `fadeUp 0.9s ${delay}s ease forwards`
                         io.unobserve(el)
                     }
@@ -126,6 +134,7 @@ const Reveal = ({ children, delay = 0, className = '' }) => {
         io.observe(el)
         return () => io.disconnect()
     }, [delay])
+
     return (
         <div ref={ref} className={className} style={{ opacity: 0 }}>
             {children}

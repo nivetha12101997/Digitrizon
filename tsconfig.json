@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/components/curtain.tsx", "app/components/Footer.jsx", "app/components/ui/button.jsx"  ],
+, "app/components/curtain.tsx", "app/components/Footer.jsx", "app/components/ui/button.tsx"  ],
   "exclude": ["node_modules"]
 }

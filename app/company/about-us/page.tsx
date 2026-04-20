@@ -2,7 +2,7 @@
 
 // import { motion, useScroll, useTransform } from "framer-motion";
 // import { useEffect, useState, useRef } from "react";
-import AboutSectionPage from "../About/new";
+import AboutSectionPage from "./new";
 import { Metadata } from "next";
 
 export const metadata:Metadata = {
