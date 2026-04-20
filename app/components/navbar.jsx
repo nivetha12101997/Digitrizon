@@ -64,7 +64,7 @@ const Navbar = () => {
         {
             title: 'Company',
             id: 'company',
-            links: [{ name: 'About Us', href: '/Company/About' }]
+            links: [{ name: 'About Us', href: '/company/about-us' }]
         }
     ];
 
@@ -83,7 +83,7 @@ const Navbar = () => {
                     {title}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {/* <AnimatePresence>
+                <AnimatePresence>
                     {isDropdownOpen && (
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
@@ -92,15 +92,16 @@ const Navbar = () => {
                             className="absolute top-full left-0 pt-[0px] w-48 z-[110]"
                         >
                             <div className="bg-black/80 border border-white/10 rounded-2xl overflow-hidden py-2 shadow-2xl backdrop-blur-xl">
-                                {links.map((link) => (
+                                {links.map((link) => link.name==='About Us' ? (
+                                    
                                     <Link key={link.name} href={link.href} className="block px-5 py-2 text-[13px] text-white/70 hover:bg-white/10 hover:text-[#FF6B00] transition-all CamelCase tracking-tight">
                                         {link.name}
                                     </Link>
-                                ))}
+                                ) : null)}
                             </div>
                         </motion.div>
                     )}
-                </AnimatePresence> */}
+                </AnimatePresence>
             </div>
         );
     };
@@ -157,17 +158,18 @@ const Navbar = () => {
                                         <ChevronDown size={16} className={`transition-transform ${mobileDropdown === item.id ? 'rotate-180' : ''}`} />
                                     </button>
                                     
-                                    {/* <AnimatePresence>
+                                    <AnimatePresence>
                                         {mobileDropdown === item.id && (
                                             <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-white/5 rounded-xl mb-4">
-                                                {item.links.map((link) => (
+                                                {item.links.map((link) => link.name==='About Us' ?
+                                                (
                                                     <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="block px-6 py-3 text-white/60 text-xs hover:text-[#FF6B00] transition-colors">
                                                         {link.name}
                                                     </Link>
-                                                ))}
+                                                ): null)}
                                             </motion.div>
                                         )}
-                                    </AnimatePresence> */}
+                                    </AnimatePresence>
                                 </div>
                             ))}
                             <button className="mt-6 w-full bg-[#FF6B00] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
