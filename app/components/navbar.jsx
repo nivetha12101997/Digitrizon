@@ -84,7 +84,7 @@ const Navbar = () => {
                     <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
-                    {isDropdownOpen && (
+                    {isDropdownOpen &&  title==='Company' && (
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ const Navbar = () => {
             </div>
 
             <AnimatePresence>
-                {isOpen && (
+                {isOpen &&(
                     <motion.div 
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
@@ -159,7 +159,7 @@ const Navbar = () => {
                                     </button>
                                     
                                     <AnimatePresence>
-                                        {mobileDropdown === item.id && (
+                                        {mobileDropdown === item.id && item.title === 'Company' && (
                                             <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-white/5 rounded-xl mb-4">
                                                 {item.links.map((link) => link.name==='About Us' ?
                                                 (
