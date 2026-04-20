@@ -247,9 +247,9 @@ export default function AboutSectionPage() {
                     <Reveal delay={0.4}>
                         <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                             {[
-                                { label: 'Not rushed', desc: 'progress.', icon: Zap },
-                                { label: 'Not trend-driven', desc: 'progress.', icon: Compass },
-                                { label: 'Meaningful', desc: 'growth.', icon: Target },
+                                { label: 'Not rushed', desc: 'execution', icon: Zap },
+                                { label: 'Not trend-driven', desc: 'direction', icon: Compass },
+                                { label: 'Meaningful', desc: 'growth', icon: Target },
                             ].map((item, idx) => (
                                 <div key={idx} className="group relative p-8 rounded-2xl border border-[#FF6B00]/20 bg-gradient-to-br from-white/[0.02] to-transparent backdrop-blur-sm hover:border-[#FF6B00]/60 transition-all">
                                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#FF6B00] flex items-center justify-center shadow-[0_0_30px_rgba(255,107,0,0.6)]">
