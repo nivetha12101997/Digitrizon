@@ -103,30 +103,50 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        name: "DIGITRIZON",
-        url: "https://www.digitrizon.com",
-        logo: "https://www.digitrizon.com/images/LogoDigitrizon.jpg",
-        sameAs: [
-          "https://www.linkedin.com/company/digitrizon"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        name: "DIGITRIZON",
-        url: "https://www.digitrizon.com",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: "https://www.digitrizon.com/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.digitrizon.com/#organization",
+      "name": "DIGITRIZON",
+      "url": "https://www.digitrizon.com",
+      "logo": "https://www.digitrizon.com/images/LogoDigitrizon.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/company/digitrizon"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.digitrizon.com/#website",
+      "name": "DIGITRIZON",
+      "url": "https://www.digitrizon.com",
+      "publisher": { "@id": "https://www.digitrizon.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.digitrizon.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://www.digitrizon.com/#navigation",
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Home",
+          "url": "https://www.digitrizon.com"
+        },
+        {
+          "@type": "WebPage",
+          "name": "About Us",
+          "url": "https://www.digitrizon.com/company/about-us"
         }
-      },
-      {
+      ]
+    },
+    {
       "@type": "BreadcrumbList",
+      "@id": "https://www.digitrizon.com/#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -142,8 +162,8 @@ export default function RootLayout({
         }
       ]
     }
-    ]
-  };
+  ]
+};
   return (
     <html lang="en">
       {/* ✅ ADD HERE */}
