@@ -148,7 +148,7 @@ export default function AboutSectionPage() {
         <main className="relative bg-black text-white">
             <Navbar />
             {/* ============ HERO ============ */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <section className=" relative min-h-screen flex items-center justify-center overflow-hidden">
                 <HeroBackground />
                 <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
                     <Reveal delay={0.15}>
@@ -184,7 +184,7 @@ export default function AboutSectionPage() {
             </section>
 
             {/* ============ SECTION 2: STORY ============ */}
-            <section id="story" className="relative py-0 md:py-20 overflow-hidden">
+            <section id="story" className="relative  py-8 pb-16 md:py-20 overflow-hidden">
                 <DotsPattern />
                 <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 blur-[120px]" />
                 <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
@@ -223,7 +223,7 @@ export default function AboutSectionPage() {
             </section>
 
             {/* ============ SECTION 3: MORE THAN A NAME ============ */}
-            <section className="relative py-0 md:py-20 overflow-hidden border-y border-[#FF6B00]/10">
+            <section className="relative py-8 md:py-20 overflow-hidden border-y border-[#FF6B00]/10">
                 <HexGrid />
                 <WavyLines />
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-[#FF6B00] opacity-10 blur-[130px]" />
@@ -264,7 +264,7 @@ export default function AboutSectionPage() {
                         </div>
                     </Reveal>
                     <Reveal delay={0.55}>
-                        <p className="mt-16 text-[26px] md:text-[25px] font-semibold">
+                        <p className="m-5  text-[20px] md:text-[25px] font-semibold">
                             At its core, DIGITRIZON is about <span className="text-[#FF6B00]">progress.</span>
                         </p>
                     </Reveal>
@@ -272,7 +272,7 @@ export default function AboutSectionPage() {
             </section>
 
             {/* ============ SECTION 4: BUILDING THINGS ============ */}
-            <section className="relative py-2 md:py-0 overflow-hidden">
+            <section className="relative py-8 md:py-0 overflow-hidden">
                 <CirclesPattern />
                 <div className="absolute inset-0 grid-bg opacity-30" />
                 <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
@@ -315,7 +315,7 @@ export default function AboutSectionPage() {
             </section>
 
             {/* ============ SECTION 5: THINK BIGGER ============ */}
-            <section className="relative py-20 md:py-15 overflow-hidden border-t border-[#FF6B00]/10">
+            <section className="relative py-8 md:py-15 overflow-hidden border-t border-[#FF6B00]/10">
                 <DotsPattern />
                 <div className="absolute top-1/2 left-0 w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 blur-[130px] -translate-y-1/2" />
                 <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 blur-[130px] -translate-y-1/2" />
@@ -355,31 +355,37 @@ export default function AboutSectionPage() {
             {/* ============ SECTION 6: CTA ============ */}
             <section id="cta" className="relative py-22 md:py-15 overflow-hidden">
                 <CTABackground />
-                <div className="relative max-w-5xl mx-auto px-6 text-center">
-                    <Reveal delay={0.1}>
-                        <h2 className="text-3xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-8">
-                            Thinking beyond the 
-                             {/* <br /> */}
-                           <span className="text-[#FF6B00] ml-4">usual?</span>
-                        </h2>
-                    </Reveal>
-                    <Reveal delay={0.25}>
-                        <p className="text-[16px] md:text-[15px] text-white/75 font-light max-w-2xl mx-auto">So are we. Let's create something that stands apart.</p>
-                    </Reveal>
-                    <Reveal delay={0.4}>
-                        <div className="mt-14 flex flex-col sm:flex-row gap-4 items-center justify-center">
-                            <a href="mailto:hello@digitrizon.com">
-                                <Button className="group relative bg-[#FF6B00] hover:bg-[#FF6B00] text-black font-bold text-lg px-10 py-7 rounded-full shadow-[0_0_10px_rgba(255,107,0,0.3)] transition-all hover:shadow-[0_0_10px_rgba(255,107,0,0.6)] hover:scale-105">
-                                    <span className="relative z-10 flex items-center">
-                                        Get in Touch
-                                        <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </span>
-                                    <div className="absolute inset-0 rounded-full animate-pulse-glow opacity-50" />
-                                </Button>
-                            </a>
-                        </div>
-                    </Reveal>
-                </div>
+<div className="relative max-w-5xl mx-auto px-6 text-center">
+    <Reveal delay={0.1}>
+        {/* Added mb-10 (40px) */}
+        <h2 className="text-3xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-10">
+            Thinking beyond the 
+            <span className="text-[#FF6B00] ml-2">usual?</span>
+        </h2>
+    </Reveal>
+    
+    <Reveal delay={0.25}>
+        {/* Added mb-10 (40px) to balance the gap below the text */}
+        <p className="text-[16px] md:text-[15px] text-white/75 font-light max-w-2xl mx-auto mb-10">
+            So are we. Let's create something that stands apart.
+        </p>
+    </Reveal>
+    
+    <Reveal delay={0.4}>
+        {/* Changed mt-14 to mt-0 because the paragraph margin handles the spacing */}
+        <div className="mt-0 flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <a href="mailto:hello@digitrizon.com">
+                <Button className="group relative bg-[#FF6B00] hover:bg-[#FF6B00] text-black font-bold text-lg px-10 py-7 rounded-full shadow-[0_0_10px_rgba(255,107,0,0.3)] transition-all hover:shadow-[0_0_10px_rgba(255,107,0,0.6)] hover:scale-105">
+                    <span className="relative z-10 flex items-center">
+                        Get in Touch
+                        <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 rounded-full animate-pulse-glow opacity-50" />
+                </Button>
+            </a>
+        </div>
+    </Reveal>
+</div>
             </section>
             <Footer />
         </main>
