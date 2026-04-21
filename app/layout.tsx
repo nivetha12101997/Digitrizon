@@ -124,7 +124,24 @@ export default function RootLayout({
           target: "https://www.digitrizon.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
-      }
+      },
+      {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.digitrizon.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Us",
+          "item": "https://www.digitrizon.com/company/about-us"
+        }
+      ]
+    }
     ]
   };
   return (
